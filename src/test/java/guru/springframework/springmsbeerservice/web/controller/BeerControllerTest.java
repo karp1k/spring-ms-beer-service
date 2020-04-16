@@ -3,6 +3,7 @@ package guru.springframework.springmsbeerservice.web.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import guru.springframework.springmsbeerservice.web.model.BeerDto;
+import guru.springframework.springmsbeerservice.web.model.BeerStyleEnum;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -25,13 +26,17 @@ class BeerControllerTest {
     @Autowired
     ObjectMapper objectMapper;
 
-    BeerDto beerDto;
+    BeerDto validBeerDto;
     String beerDtoJson;
 
     @BeforeEach
     void setUp() throws JsonProcessingException {
-        beerDto = BeerDto.builder().build();
-        beerDtoJson = objectMapper.writeValueAsString(beerDto);
+        validBeerDto = BeerDto.builder()
+                .name("Duff")
+                .upc(1L)
+                .price(new BigDecimal("21.0"))
+                .beerStyle(BeerStyleEnum.ALE).build();
+        beerDtoJson = objectMapper.writeValueAsString(validBeerDto);
     }
 
     @Test
