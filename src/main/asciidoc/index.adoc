@@ -1,0 +1,29 @@
+# Brewery Order Service Docs
+
+
+Beer Get
+
+include::{snippets}/v1/beer-get/curl-request.adoc[]
+
+include::{snippets}/v1/beer-get/http-request.adoc[]
+
+include::{snippets}/v1/beer-get/http-response.adoc[]
+
+include::{snippets}/v1/beer-get/response-body.adoc[]
+
+include::{snippets}/v1/beer-get/response-fields.adoc[]
+
+Create New Beer
+
+
+include::{snippets}/v1/beer-new/curl-request.adoc[]
+
+include::{snippets}/v1/beer-new/http-request.adoc[]
+
+include::{snippets}/v1/beer-new/http-response.adoc[]
+
+include::{snippets}/v1/beer-new/request-body.adoc[]
+
+include::{snippets}/v1/beer-new/request-fields.adoc[]
+
+include::{snippets}/v1/beer-new/response-body.adoc[]
