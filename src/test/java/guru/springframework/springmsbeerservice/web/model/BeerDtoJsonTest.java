@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
+import static guru.springframework.springmsbeerservice.bootstrap.DataLoader.BEER_UPC_1;
 import static org.junit.jupiter.api.Assertions.*;
 // Profile for SNAKE_CASE of JSON properties names
 @ActiveProfiles("snake")
@@ -44,7 +45,7 @@ class BeerDtoJsonTest {
                 .beerStyle(BeerStyleEnum.ALE)
                 .createdDate(OffsetDateTime.now())
                 .lastModifiedDate(OffsetDateTime.now())
-                .upc(1L)
+                .upc(BEER_UPC_1)
                 .price(BigDecimal.TEN)
                 //.localDate(LocalDate.now())
                 .build();
