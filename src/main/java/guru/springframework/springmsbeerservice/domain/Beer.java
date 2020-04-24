@@ -29,11 +29,14 @@ public class Beer {
     @Version
     private Long version;
     @CreationTimestamp
-    @Column(updatable = false)
+    @Column(name = "created_date", updatable = false)
     private Timestamp createdDate;
     @UpdateTimestamp
+    @Column(name = "last_modified_date")
     private Timestamp lastModifiedDate;
+    @Column(name = "beer_name")
     private String beerName;
+    @Column(name = "beer_style")
     private String beerStyle;
     @Column(unique = true)
     private String upc;
