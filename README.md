@@ -1,2 +1,7 @@
 # spring-ms-beer-service
-Spring Boot Microservices with Spring Cloud Beginner to Guru Representing the beer service
+
+
+related repo's:
+
+[beer-order-service](https://github.com/karp1k/spring-ms-beer-order-service)
+[beer-inventory-service](https://github.com/karp1k/spring-ms-beer-inventory-service)
