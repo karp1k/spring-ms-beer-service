@@ -87,4 +87,12 @@ public class BeerServiceImpl implements BeerService {
                         page.getPageable().getPageSize()),
                 page.getTotalElements());
     }
+
+    // cacheNames - from ehcache <cache> | key - value for identifying entity in cache
+    @Cacheable(cacheNames = "beerUpcCache", key = "#upc")
+    @Override
+    public BeerDto getByUpc(String upc) {
+        return mapper.toDto(beerRepository.findByUpc(upc).orElseThrow(() -> new RuntimeException("Not found")));
+
+    }
 }
