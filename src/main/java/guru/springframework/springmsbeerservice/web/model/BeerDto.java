@@ -13,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -25,7 +26,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class BeerDto {
+public class BeerDto implements Serializable {
+
+    static final long serialVersionUID = -1193785131030705907L;
     // Override PropertyNamingStrategy
     // @JsonProperty("beerId") rename property from id to beerId in JSON
     @Null

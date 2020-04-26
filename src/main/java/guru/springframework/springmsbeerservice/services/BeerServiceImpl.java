@@ -7,10 +7,12 @@ import guru.springframework.springmsbeerservice.web.model.BeerDto;
 import guru.springframework.springmsbeerservice.web.model.BeerPageList;
 import guru.springframework.springmsbeerservice.web.model.BeerStyleEnum;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+
 
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -25,6 +27,8 @@ public class BeerServiceImpl implements BeerService {
     private final BeerRepository beerRepository;
     private final BeerMapper mapper;
 
+    // cacheNames - from ehcache <cache> | key - value for identifying entity in cache  | in condition using SpEL | Cache only if there is no call's to inventory-service
+    @Cacheable(cacheNames = "beerCache", key = "#id",condition = "#showInventoryOnHand == false")
     @Override
     public BeerDto getById(UUID id, Boolean showInventoryOnHand) {
         if (showInventoryOnHand) {
@@ -51,9 +55,11 @@ public class BeerServiceImpl implements BeerService {
             throw new RuntimeException("Not found");
         }
     }
-
+    // cacheNames - from ehcache <cache> | in condition using SpEL | Cache only if there is no call's to inventory-service
+    @Cacheable(cacheNames = "beerListCache", condition = "#showInventoryOnHand == false")
     @Override
     public BeerPageList getListOfBeers(String beerName, BeerStyleEnum beerStyleEnum, PageRequest of, Boolean showInventoryOnHand) {
+        System.out.println("Method was called"); // just for checking cache work
         Page<Beer> page;
 
         if (StringUtils.isEmpty(beerName) && !StringUtils.isEmpty(beerStyleEnum)) {
