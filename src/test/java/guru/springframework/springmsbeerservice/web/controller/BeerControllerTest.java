@@ -2,7 +2,7 @@ package guru.springframework.springmsbeerservice.web.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import guru.springframework.springmsbeerservice.Services.BeerService;
+import guru.springframework.springmsbeerservice.services.BeerService;
 import guru.springframework.springmsbeerservice.web.model.BeerDto;
 import guru.springframework.springmsbeerservice.web.model.BeerStyleEnum;
 import org.junit.jupiter.api.BeforeEach;
@@ -41,7 +41,7 @@ class BeerControllerTest {
     @BeforeEach
     void setUp() throws JsonProcessingException {
         validBeerDto = BeerDto.builder()
-                .name("Duff")
+                .beerName("Duff")
                 .upc(BEER_UPC_1)
                 .price(new BigDecimal("21.0"))
                 .beerStyle(BeerStyleEnum.ALE).build();

@@ -41,7 +41,7 @@ public class BeerDto {
     @Null
     private OffsetDateTime lastModifiedDate; // read-only properties for client
     @NotBlank
-    private String name;
+    private String beerName;
 
     @NotNull
     private BeerStyleEnum beerStyle;

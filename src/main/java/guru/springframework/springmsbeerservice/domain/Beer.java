@@ -3,6 +3,7 @@ package guru.springframework.springmsbeerservice.domain;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -24,23 +25,33 @@ public class Beer {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Type(type = "org.hibernate.type.UUIDCharType") // org.h2.jdbc.JdbcSQLDataException: Hexadecimal string contains non-hex character:
     @Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
     private UUID id;
+
     @Version
     private Long version;
+
     @CreationTimestamp
     @Column(name = "created_date", updatable = false)
     private Timestamp createdDate;
+
     @UpdateTimestamp
     @Column(name = "last_modified_date")
     private Timestamp lastModifiedDate;
+
     @Column(name = "beer_name")
     private String beerName;
+
     @Column(name = "beer_style")
     private String beerStyle;
+
     @Column(unique = true)
     private String upc;
+
     private BigDecimal price;
+
     private Integer minOnHand;
+
     private Integer quantityToBrew;
 }

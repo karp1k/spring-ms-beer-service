@@ -41,7 +41,7 @@ class BeerDtoJsonTest {
     BeerDto getDto() {
         return BeerDto.builder()
                 .id(UUID.randomUUID())
-                .name("Name")
+                .beerName("Name")
                 .beerStyle(BeerStyleEnum.ALE)
                 .createdDate(OffsetDateTime.now())
                 .lastModifiedDate(OffsetDateTime.now())
