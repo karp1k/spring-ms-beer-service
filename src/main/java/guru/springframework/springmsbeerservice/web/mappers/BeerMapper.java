@@ -13,5 +13,6 @@ import org.mapstruct.Mapper;
 public interface BeerMapper {
 
     BeerDto toDto(Beer beer);
+    BeerDto toDtoWithInventory(Beer beer);
     Beer toEntity(BeerDto dto);
 }

@@ -18,6 +18,7 @@ import java.util.UUID;
 
 import static guru.springframework.springmsbeerservice.bootstrap.DataLoader.BEER_UPC_1;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.doNothing;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -50,7 +51,7 @@ class BeerControllerTest {
 
     @Test
     void getBeerById() throws Exception {
-        given(beerService.getById(any())).willReturn(validBeerDto);
+        given(beerService.getById(any(), anyBoolean())).willReturn(validBeerDto);
         mockMvc.perform(get("/api/v1/beer/" + UUID.randomUUID().toString())
                 .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     }
