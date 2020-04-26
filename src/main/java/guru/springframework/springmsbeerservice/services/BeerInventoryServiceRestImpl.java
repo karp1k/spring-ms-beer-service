@@ -1,6 +1,6 @@
 package guru.springframework.springmsbeerservice.services;
 
-import guru.springframework.springmsbeerservice.services.inventory.model.BeerInventoryDto;
+import guru.springframework.springmsbeerservice.services.ms.inventory.model.BeerInventoryDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.ParameterizedTypeReference;
