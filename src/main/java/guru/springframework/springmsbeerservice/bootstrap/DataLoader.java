@@ -3,6 +3,7 @@ package guru.springframework.springmsbeerservice.bootstrap;
 import guru.springframework.springmsbeerservice.domain.Beer;
 import guru.springframework.springmsbeerservice.repositories.BeerRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -11,7 +12,8 @@ import java.util.UUID;
 /**
  * @author kas
  */
-//@Component instead bootstrap data with data.sql
+@Profile("mysql")
+@Component
 public class DataLoader implements CommandLineRunner {
 
     public static final String BEER_UPC_1 = "018200533082";
@@ -29,7 +31,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       // loadBeerEntity();
+       loadBeerEntity();
     }
 
     private void loadBeerEntity() {
