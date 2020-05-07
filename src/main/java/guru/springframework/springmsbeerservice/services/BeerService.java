@@ -13,9 +13,10 @@ import java.util.UUID;
 public interface BeerService {
 
     BeerDto getById(UUID id, Boolean showInventoryOnHand);
-    BeerDto save(BeerDto dto);
-    void update(UUID id, BeerDto dto);
 
+    BeerDto save(BeerDto dto);
+
+    void update(UUID id, BeerDto dto);
 
     BeerPageList getListOfBeers(String beerName, BeerStyleEnum beerStyleEnum, PageRequest of, Boolean showInventoryOnHand);
 
