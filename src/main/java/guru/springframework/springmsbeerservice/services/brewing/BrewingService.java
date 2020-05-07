@@ -1,8 +1,9 @@
-package guru.springframework.springmsbeerservice.services;
+package guru.springframework.springmsbeerservice.services.brewing;
 
 import guru.springframework.springmsbeerservice.config.JmsConfig;
 import guru.springframework.springmsbeerservice.domain.Beer;
 import guru.springframework.springmsbeerservice.repositories.BeerRepository;
+import guru.springframework.springmsbeerservice.services.BeerInventoryService;
 import guru.springframework.springmsbeerservice.web.mappers.BeerMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
