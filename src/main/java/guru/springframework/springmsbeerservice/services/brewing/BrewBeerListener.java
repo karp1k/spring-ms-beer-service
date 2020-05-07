@@ -31,7 +31,7 @@ public class BrewBeerListener {
         Optional<Beer> beerOp = repository.findById(dto.getId());
         // simplified brewing process
         beerOp.ifPresent(beer -> {
-            log.debug("Brewing new quantity of beers {} ...", beer.getBeerName());
+            log.debug("Brewing new quantity of beers {}...", beer.getBeerName());
             dto.setQuantityOnHand(beer.getQuantityToBrew());
             log.debug("Brewed beer {} with quantity {}", beer.getBeerName(), beer.getQuantityToBrew());
             NewInventoryEvent newInventoryEvent = new NewInventoryEvent(dto);

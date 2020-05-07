@@ -1,9 +1,10 @@
 package guru.springframework.springmsbeerservice.events;
 
 import guru.springframework.springmsbeerservice.web.model.BeerDto;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -11,11 +12,12 @@ import java.io.Serializable;
  * @author kas
  */
 @Data
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class BeerEvent implements Serializable {
 
-    static final long serialVersionUID = -3996810961306332731L;
+    static final long serialVersionUID = -1134240417156196848L;
 
-    private final BeerDto beerDto;
+    private BeerDto beerDto;
 }

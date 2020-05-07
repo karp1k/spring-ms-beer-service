@@ -34,6 +34,7 @@ public class BrewingService {
             log.debug("Beer: " + beer.getBeerName());
             log.debug("Min onHand is: " + beer.getMinOnHand());
             log.debug("Current inventory on hands is: " + currentInventoryOnHand);
+            log.debug("======================================");
             if (beer.getMinOnHand() >= currentInventoryOnHand) {
                 // send to mq
                 jmsTemplate.convertAndSend(JmsConfig.BREWING_REQUEST_QUEUE, mapper.toDto(beer));
