@@ -1,5 +1,6 @@
 package guru.springframework.springmsbeerservice.services.brewing;
 
+import guru.springframework.springmsbeercommon.web.config.Constants;
 import guru.springframework.springmsbeercommon.web.events.NewInventoryEvent;
 import guru.springframework.springmsbeerservice.config.JmsConfig;
 import guru.springframework.springmsbeerservice.domain.Beer;
@@ -35,7 +36,7 @@ public class BrewBeerListener {
             dto.setQuantityOnHand(beer.getQuantityToBrew());
             log.debug("Brewed beer {} with quantity {}", beer.getBeerName(), beer.getQuantityToBrew());
             NewInventoryEvent newInventoryEvent = new NewInventoryEvent(dto);
-            jmsTemplate.convertAndSend(JmsConfig.NEW_INVENTORY_QUEUE, newInventoryEvent);
+            jmsTemplate.convertAndSend(Constants.NEW_INVENTORY_QUEUE, newInventoryEvent);
         });
 
     }
