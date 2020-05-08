@@ -37,7 +37,6 @@ public class DataLoader implements CommandLineRunner {
     private void loadBeerEntity() {
         if (beerRepository.count() == 0) {
             beerRepository.save(Beer.builder()
-                    .id(BEER_ID_1)
                     .beerName("Budwaiser")
                     .beerStyle("STAUT")
                     .quantityToBrew(200)
@@ -46,7 +45,6 @@ public class DataLoader implements CommandLineRunner {
                     .price(new BigDecimal("9.00"))
                     .build());
             beerRepository.save(Beer.builder()
-                    .id(BEER_ID_2)
                     .beerName("Galaxy Cat")
                     .quantityToBrew(200)
                     .minOnHand(12)
@@ -55,7 +53,6 @@ public class DataLoader implements CommandLineRunner {
                     .price(new BigDecimal("12.30"))
                     .build());
             beerRepository.save(Beer.builder()
-                    .id(BEER_ID_3)
                     .beerName("No Hammers on the bar")
                     .quantityToBrew(200)
                     .minOnHand(12)
