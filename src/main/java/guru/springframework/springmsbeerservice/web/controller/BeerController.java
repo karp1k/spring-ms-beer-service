@@ -1,6 +1,5 @@
 package guru.springframework.springmsbeerservice.web.controller;
 
-import guru.springframework.springmsbeerservice.services.BeerInventoryService;
 import guru.springframework.springmsbeerservice.services.BeerService;
 import guru.springframework.springmsbeercommon.web.model.BeerDto;
 import guru.springframework.springmsbeercommon.web.model.BeerStyleEnum;
