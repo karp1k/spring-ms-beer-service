@@ -31,11 +31,13 @@ public class BrewingService {
         beerList.forEach(beer -> {
             // how many specific beers presented in the inventory
             Integer currentInventoryOnHand = inventoryService.getOnHandInventory(beer.getId());
-            log.debug("Beer: " + beer.getBeerName());
-            log.debug("Min onHand is: " + beer.getMinOnHand());
-            log.debug("Current inventory on hands is: " + currentInventoryOnHand);
-            log.debug("======================================");
+
             if (beer.getMinOnHand() >= currentInventoryOnHand) {
+                log.debug("Send request for beer to inventory...");
+                log.debug("Beer: " + beer.getBeerName());
+                log.debug("Min onHand is: " + beer.getMinOnHand());
+                log.debug("Current inventory on hands is: " + currentInventoryOnHand);
+                log.debug("======================================");
                 // send to mq
                 jmsTemplate.convertAndSend(JmsConfig.BREWING_REQUEST_QUEUE, mapper.toDto(beer));
             }
