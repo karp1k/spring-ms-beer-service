@@ -18,13 +18,13 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Profile("local-discovery")
 @Service
-public class BeerInventoryServiceFeignClientImpl implements BeerInventoryService {
+public class BeerInventoryServiceFeignClient implements BeerInventoryService {
 
     private final BeerInventoryFeignClientService beerInventoryFeignClientService;
 
     @Override
     public Integer getOnHandInventory(UUID beerId) {
-        log.debug("Calling Inventory Service through OpenFeign with beerId: {}", beerId);
+        //log.debug("Calling Inventory Service through OpenFeign with beerId: {}", beerId);
         ResponseEntity<List<BeerInventoryDto>> inventoryDtoList = beerInventoryFeignClientService.getOnHandInventory(beerId);
         return Objects.requireNonNull(inventoryDtoList.getBody()).stream().mapToInt(BeerInventoryDto::getQuantityOnHand).sum();
     }

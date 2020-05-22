@@ -12,12 +12,14 @@ import java.util.UUID;
 /**
  * @author kas
  */
-@FeignClient(name = "inventory-service", fallback = BeerInventoryFailoverFeignClientServiceImpl.class) // name should be like the spring.application.name property
-public interface BeerInventoryFeignClientService {
+@FeignClient(name = "inventory-failover-service") // name should be like the spring.application.name property
+public interface BeerInventoryFailoverServiceFeignClient {
+
+    String INVENTORY_FAILOVER_PATH = "inventory-failover";
     /*
     * explicitly set PathVariable name property to beerId beacuse of a Exception:
     * PathVariable annotation was empty on param 0
     * */
-    @GetMapping(value = BeerInventoryService.INVENTORY_PATH)
-    ResponseEntity<List<BeerInventoryDto>> getOnHandInventory(@PathVariable("beerId") UUID beerId);
+    @GetMapping(value = INVENTORY_FAILOVER_PATH)
+    ResponseEntity<List<BeerInventoryDto>> getOnHandInventory();
 }

@@ -20,13 +20,13 @@ import java.util.UUID;
 @Profile("!local-discovery") // if profile local-discovery active don't instantiate this bean
 @Service
 @Slf4j
-public class BeerInventoryServiceRestImpl implements BeerInventoryService {
+public class BeerInventoryServiceRest implements BeerInventoryService {
 
     private final RestTemplate restTemplate;
     private final String beerInventoryServiceHost;
 
-    public BeerInventoryServiceRestImpl(RestTemplateBuilder restTemplateBuilder,
-                                        @Value("${ms.brewery.beer-inventory-service.host}") String beerInventoryServiceHost) {
+    public BeerInventoryServiceRest(RestTemplateBuilder restTemplateBuilder,
+                                    @Value("${ms.brewery.beer-inventory-service.host}") String beerInventoryServiceHost) {
         this.restTemplate = restTemplateBuilder.build();
         this.beerInventoryServiceHost = beerInventoryServiceHost;
     }

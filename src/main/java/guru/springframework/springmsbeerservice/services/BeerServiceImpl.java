@@ -59,7 +59,7 @@ public class BeerServiceImpl implements BeerService {
     @Cacheable(cacheNames = "beerListCache", condition = "#showInventoryOnHand == false")
     @Override
     public BeerPageList getListOfBeers(String beerName, BeerStyleEnum beerStyleEnum, PageRequest of, Boolean showInventoryOnHand) {
-        System.out.println("Method was called"); // just for checking cache work
+        //System.out.println("Method was called"); // just for checking cache work
         Page<Beer> page;
 
         if (StringUtils.isEmpty(beerName) && !StringUtils.isEmpty(beerStyleEnum)) {
