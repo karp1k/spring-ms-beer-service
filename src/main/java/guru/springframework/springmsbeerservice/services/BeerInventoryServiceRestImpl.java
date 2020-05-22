@@ -1,8 +1,10 @@
 package guru.springframework.springmsbeerservice.services;
 
 import guru.springframework.springmsbeercommon.web.model.BeerInventoryDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +17,11 @@ import java.util.UUID;
 /**
  * @author kas
  */
+@Profile("!local-discovery") // if profile local-discovery active don't instantiate this bean
 @Service
+@Slf4j
 public class BeerInventoryServiceRestImpl implements BeerInventoryService {
 
-    private static final String INVENTORY_PATH = "/api/v1/beer/{beerId}/inventory";
     private final RestTemplate restTemplate;
     private final String beerInventoryServiceHost;
 
@@ -30,6 +33,7 @@ public class BeerInventoryServiceRestImpl implements BeerInventoryService {
 
     @Override
     public Integer getOnHandInventory(UUID beerId) {
+        log.info("AAAAA");
         //ResponseEntity<List<BeerInventoryDto>> inventoryDtoList = restTemplate.getForEntity(beerInventoryServiceHost + INVENTORY_PATH, (Class<List<BeerInventoryDto>>)(Class<?>)List.class, beerId);
         ResponseEntity<List<BeerInventoryDto>> inventoryDtoList = restTemplate
                 .exchange(beerInventoryServiceHost + INVENTORY_PATH, HttpMethod.GET, null,
