@@ -6,12 +6,12 @@
             <!--CHECK THIS FOR DEPENDENCIES-->
         <groupId>guru.springframework</groupId>
         <artifactId>spring-ms-brewery-bom</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <groupId>guru.springframework</groupId>
     <artifactId>spring-ms-beer-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <name>spring-ms-beer-service</name>
 
